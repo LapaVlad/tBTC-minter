@@ -1,0 +1,51 @@
+// Installation of Node version manager
+
+```json
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+nvm install v12.18.2
+```
+
+// GIT clone and packages installation
+
+cd ~ && git clone https://github.com/VladiLapa/tBTC-minter.git
+cd tBTC-minter && npm install
+
+// Initialisation of MySQL
+
+sql `sql/mytBTC.sql`
+
+//You should insert some rows into `mytBTC_Wallet`.
+
+INSERT INTO `mytBTC_Wallet` ( `address`, `priKey`, `walletType`, `lotSizeBTC`)
+VALUES
+	('0x6h********3030bdfA', '0x24f*******b43fa1', 'ETH', 1);
+
+// Initialisation of configuration
+
+Edit `conf.js`, set your config.
+
+
+let conf = {
+    ethRpcUrl: "",
+
+    // deposit
+    lotSizeBTC: 1,
+
+    // redeem
+    ridderAddress: "m******yuv",
+
+    // send BTC
+    blockcypherApiToken: "ij34d******23ne3",
+    network: "testnet", // testnet or mainnet
+    wifPrivateKey: "nUI******q",
+    txFee: 0.0001, // btc
+
+    // database
+    mysqlHost: "",
+    mysqlPort: 3306,
+    mysqlUserName: "",
+    mysqlPassword: "",
+    mysqlDatabase: ""
+};
+
+export default conf

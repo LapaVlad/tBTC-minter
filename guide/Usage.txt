@@ -1,0 +1,21 @@
+// Manual operations
+
+// add to ~/.bashrc and source
+alias node_exp='node --experimental-json-modules --experimental-modules' 
+
+// deposit tBTC
+node_exp index.js deposit                           // will use wallet from database
+node_exp index.js deposit <eth_wallet_private_key>  // will use wallet from given private key
+
+// resume tBTC
+node_exp index.js resume                 // will pick one deposit info from database
+node_exp index.js resume <deposit_addr>  // will resume given deposit which saved in database
+
+// redeem tBTC
+node_exp index.js redeem <eth_wallet_private_key> <deposit_addr> // will redeem to the ridderAddress set in conf
+
+// send BTC
+node_exp index.js sendBtc // will send BTC from BTC_Wallet set in conf
+
+
+//`run.sh` can help you start multiple processes at the same time.
